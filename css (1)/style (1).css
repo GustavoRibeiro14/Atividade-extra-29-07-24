@@ -1,0 +1,124 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo básico para o corpo do documento */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para o cabeçalho */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+/* Estilo para a navegação */
+nav {
+    background-color: #444;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    padding: 0.5rem 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px; /* Espaçamento entre os itens */
+}
+
+nav ul li:last-child {
+    margin-right: 0; /* Remove o espaçamento à direita do último item */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para o conteúdo principal */
+main {
+    padding: 2rem;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    font-size: 1.8rem;
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+main p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+main strong {
+    color: #333;
+}
+
+/* Estilo para o rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilo para o contêiner de imagens */
+.container {
+    display: flex;
+    justify-content: space-around; /* Alinha as imagens com espaço em volta */
+}
+
+.container img {
+    width: 200px; /* Define a largura fixa das imagens */
+    height: 200px; /* Define a altura fixa das imagens */
+    object-fit: cover; /* Mantém a proporção da imagem e preenche o contêiner */
+    border-radius: 5px; /* Borda arredondada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-around; /* Alinha as imagens com espaço em volta */
+}
+
+.container2 img {
+    width: 200px; /* Define a largura fixa das imagens */
+    height: 200px; /* Define a altura fixa das imagens */
+    object-fit: cover; /* Mantém a proporção da imagem e preenche o contêiner */
+    border-radius: 5px; /* Borda arredondada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}

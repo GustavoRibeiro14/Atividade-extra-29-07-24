@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário Persona 3</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo básico para o corpo do documento */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f7f7f7;
+    font-size: 16px; /* Tamanho base da fonte */
+}
+
+/* Estilo para o cabeçalho */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+header h1 {
+    font-size: 1.25rem; /* Ajustado para melhor visualização */
+}
+
+/* Estilo para a navegação */
+nav {
+    background-color: #444;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+/* Estilo para o conteúdo principal */
+main {
+    padding: 2rem;
+    background-color: #fff;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    font-size: 1.8rem;
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+main p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+main strong {
+    color: #333;
+}
+
+/* Estilo para o rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilo para o contêiner de imagens */
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container2 img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos específicos para o formulário */
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#citiesSelect {
+    display: none; /* Inicialmente esconde o select de cidades */
+}
+
+.error {
+    color: red;
+    font-size: 0.8em;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+a:active {
+    color: #6e0303;
+}
+
+/* Estilo para o contador de caracteres */
+.char-count {
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 5px;
+}
+
+.max-length-warning {
+    color: red;
+    display: none;
+}
+
+/* Estilo para os botões de controle de tamanho da fonte */
+.font-controls {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.font-controls button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.font-controls button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para as regras de senha */
+.password-rules {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.password-rule {
+    margin-bottom: 5px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.password-rule::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #999;
+    font-size: 1.2rem;
+}
+
+.password-rule.valid {
+    color: green;
+}
+
+input.valid {
+    border: 2px solid green;
+    background-color: #e0ffe0; /* Cor de fundo verde claro */
+}
+
+input.invalid {
+    border: 2px solid red;
+    background-color: #ffe0e0; /* Cor de fundo vermelho claro */
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>Persona 3 Wiki</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="form.html">Formulário</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="font-controls">
+            <button onclick="changeFontSize(-1)">Diminuir Fonte</button>
+            <button onclick="changeFontSize(1)">Aumentar Fonte</button>
+        </div>
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <label for="username">Nome de usuário:</label>
+            <input type="text" id="username" required>
+            
+            <label for="age">Idade:</label>
+            <input type="number" id="age" required>
+            
+            <label for="state">Estado do Sudeste:</label>
+            <select id="state" onchange="handleStateChange()">
+                <option value="">Selecione um estado</option>
+                <option value="SP">São Paulo</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="ES">Espírito Santo</option>
+            </select>
+            
+            <label for="citiesSelect" id="citiesLabel" style="display: none;">Cidade:</label>
+            <select id="citiesSelect" required style="display: none;">
+                <option value="">Selecione uma cidade</option>
+            </select>
+            
+            <label for="password">Senha:</label>
+            <input type="password" id="password" maxlength="30" oninput="updatePasswordCharCount(); validatePassword();" required>
+            <div class="char-count" id="passwordCharCount">0/30 caracteres</div>
+            <div class="max-length-warning" id="passwordMaxLengthWarning">Você atingiu o limite máximo de caracteres.</div>
+            
+            <div class="password-rules">
+                <div class="password-rule" id="rule1">Contém pelo menos uma letra maiúscula</div>
+                <div class="password-rule" id="rule2">Contém pelo menos um número</div>
+                <div class="password-rule" id="rule3">Contém pelo menos um caractere especial</div>
+                <div class="password-rule" id="rule4">Pelo menos 8 caracteres</div>
+            </div>
+
+            <label for="confirmPassword">Confirme a senha:</label>
+            <input type="password" id="confirmPassword" maxlength="30" oninput="updateConfirmPasswordCharCount()" required>
+            <div class="char-count" id="confirmPasswordCharCount">0/30 caracteres</div>
+            <div class="max-length-warning" id="confirmPasswordMaxLengthWarning">Você atingiu o limite máximo de caracteres.</div>
+            
+            <label for="comments">Comentários:</label>
+            <textarea id="comments" rows="4" maxlength="200" oninput="updateCommentsCharCount()" placeholder="Digite seus comentários aqui..."></textarea>
+            <div class="char-count" id="commentsCharCount">0/200 caracteres</div>
+            <div class="max-length-warning" id="commentsMaxLengthWarning">Você atingiu o limite máximo de caracteres.</div>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+
+    <div id="successMessage" style="display: none; margin-top: 20px;">
+        <p>Formulário enviado com sucesso!</p>
+    </div>
+
+    <script>
+        // Limites para o tamanho da fonte
+        const MIN_FONT_SIZE = 12; // Tamanho mínimo da fonte em pixels
+        const MAX_FONT_SIZE = 24; // Tamanho máximo da fonte em pixels
+        let currentFontSize = 16; // Tamanho inicial da fonte
+
+        function changeFontSize(increment) {
+            currentFontSize += increment;
+
+            // Restringe o tamanho da fonte dentro dos limites
+            if (currentFontSize < MIN_FONT_SIZE) {
+                currentFontSize = MIN_FONT_SIZE;
+            } else if (currentFontSize > MAX_FONT_SIZE) {
+                currentFontSize = MAX_FONT_SIZE;
+            }
+
+            document.body.style.fontSize = `${currentFontSize}px`;
+        }
+
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var age = document.getElementById('age').value;
+            var state = document.getElementById('state').value;
+            var citiesSelect = document.getElementById('citiesSelect').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Verifica se as senhas coincidem
+            if (password !== confirmPassword) {
+                window.alert('As senhas não coincidem.');
+                return false;
+            }
+
+            // Verifica a segurança da senha
+            if (!isPasswordSecure(password)) {
+                window.alert('A senha não atende aos requisitos de segurança. (mínimo 8 caracteres, incluindo letras maiúsculas, números e caracteres especiais)');
+                return false;
+            }
+
+            // Verifica se a idade é maior ou igual a 18 anos
+            if (parseInt(age) < 18) {
+                window.alert('Você precisa ter pelo menos 18 anos para enviar este formulário.');
+                return false;
+            }
+
+            // Verifica se um estado do sudeste foi selecionado
+            if (state === '') {
+                window.alert('Selecione um estado do Sudeste.');
+                return false;
+            }
+
+            // Verifica se uma cidade foi selecionada, se o campo de cidade estiver visível
+            if (document.getElementById('citiesSelect').style.display !== 'none' && citiesSelect === '') {
+                window.alert('Selecione uma cidade.');
+                return false;
+            }
+
+            // Se todas as validações forem bem sucedidas, mostra mensagem de sucesso
+            document.getElementById('registrationForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+
+            return false; // Evita o envio real do formulário para este exemplo
+        }
+
+        // Função para verificar a segurança da senha
+        function isPasswordSecure(password) {
+            var regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9])(?=.*[a-z]).{8,}$/;
+            return regex.test(password);
+        }
+
+        // Função chamada quando o estado é alterado
+        function handleStateChange() {
+            var state = document.getElementById('state').value;
+            var citiesLabel = document.getElementById('citiesLabel');
+            var citiesSelect = document.getElementById('citiesSelect');
+
+            if (state !== '') {
+                citiesLabel.style.display = 'block';
+                citiesSelect.style.display = 'block';
+                populateCities();
+            } else {
+                citiesLabel.style.display = 'none';
+                citiesSelect.style.display = 'none';
+            }
+        }
+
+        // Função para popular o select de cidades baseado no estado selecionado
+        function populateCities() {
+            var state = document.getElementById('state').value;
+            var citiesSelect = document.getElementById('citiesSelect');
+            citiesSelect.innerHTML = '<option value="">Selecione uma cidade</option>';
+
+            if (state === 'SP') {
+                addOption(citiesSelect, 'São Paulo');
+                addOption(citiesSelect, 'Campinas');
+                addOption(citiesSelect, 'Santos');
+            } else if (state === 'RJ') {
+                addOption(citiesSelect, 'Rio de Janeiro');
+                addOption(citiesSelect, 'Niterói');
+                addOption(citiesSelect, 'Petrópolis');
+            } else if (state === 'MG') {
+                addOption(citiesSelect, 'Belo Horizonte');
+                addOption(citiesSelect, 'Uberlândia');
+                addOption(citiesSelect, 'Juiz de Fora');
+            } else if (state === 'ES') {
+                addOption(citiesSelect, 'Vitória');
+                addOption(citiesSelect, 'Vila Velha');
+                addOption(citiesSelect, 'Cariacica');
+            }
+        }
+
+        // Função auxiliar para adicionar opções ao select
+        function addOption(selectElement, optionText) {
+            var option = document.createElement('option');
+            option.text = optionText;
+            selectElement.add(option);
+        }
+
+        // Função para atualizar a contagem de caracteres no textarea de comentários
+        function updateCommentsCharCount() {
+            var textarea = document.getElementById('comments');
+            var charCount = document.getElementById('commentsCharCount');
+            var maxLengthWarning = document.getElementById('commentsMaxLengthWarning');
+            var currentLength = textarea.value.length;
+            var maxLength = textarea.maxLength;
+
+            charCount.textContent = `${currentLength}/${maxLength} caracteres`;
+
+            if (currentLength >= maxLength) {
+                maxLengthWarning.style.display = 'block';
+            } else {
+                maxLengthWarning.style.display = 'none';
+            }
+        }
+
+        // Função para atualizar a contagem de caracteres na senha
+        function updatePasswordCharCount() {
+            var passwordInput = document.getElementById('password');
+            var charCount = document.getElementById('passwordCharCount');
+            var maxLengthWarning = document.getElementById('passwordMaxLengthWarning');
+            var currentLength = passwordInput.value.length;
+            var maxLength = passwordInput.maxLength;
+
+            charCount.textContent = `${currentLength}/${maxLength} caracteres`;
+
+            if (currentLength >= maxLength) {
+                maxLengthWarning.style.display = 'block';
+            } else {
+                maxLengthWarning.style.display = 'none';
+            }
+        }
+
+        // Função para atualizar a contagem de caracteres na confirmação de senha
+        function updateConfirmPasswordCharCount() {
+            var confirmPasswordInput = document.getElementById('confirmPassword');
+            var charCount = document.getElementById('confirmPasswordCharCount');
+            var maxLengthWarning = document.getElementById('confirmPasswordMaxLengthWarning');
+            var currentLength = confirmPasswordInput.value.length;
+            var maxLength = confirmPasswordInput.maxLength;
+
+            charCount.textContent = `${currentLength}/${maxLength} caracteres`;
+
+            if (currentLength >= maxLength) {
+                maxLengthWarning.style.display = 'block';
+            } else {
+                maxLengthWarning.style.display = 'none';
+            }
+        }
+
+        // Função para validar a senha e aplicar estilos às regras
+        function validatePassword() {
+            var password = document.getElementById('password').value;
+
+            // Regras de validação
+            var hasUpperCase = /[A-Z]/.test(password);
+            var hasNumber = /[0-9]/.test(password);
+            var hasSpecialChar = /[!@#$%^&*]/.test(password);
+            var isLongEnough = password.length >= 8;
+
+            // Atualiza a classe das regras
+            document.getElementById('rule1').classList.toggle('valid', hasUpperCase);
+            document.getElementById('rule2').classList.toggle('valid', hasNumber);
+            document.getElementById('rule3').classList.toggle('valid', hasSpecialChar);
+            document.getElementById('rule4').classList.toggle('valid', isLongEnough);
+        }
+    </script>
+</body>
+</html>
